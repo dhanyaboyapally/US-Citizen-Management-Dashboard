@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Citizen Report</title>
+</head>
+<body>
+    <h1>Citizen Report</h1>
+
+    <h2>Citizen Information</h2>
+    <ul>
+        <li><strong>SSN:</strong> {{ report['Citizen Information']['SSN'] }}</li>
+        <li><strong>Name:</strong> {{ report['Citizen Information']['Name'] }}</li>
+        <li><strong>DOB:</strong> {{ report['Citizen Information']['DOB'] }}</li>
+        <li><strong>Citizenship Status:</strong> {{ report['Citizen Information']['CitizenshipStatus'] }}</li>
+    </ul>
+
+    <h2>Tax Returns</h2>
+    {% if report['Tax Returns'] %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Max Income</th>
+                    <th>Tax Paid</th>
+                    <th>Authority ID</th>
+                    <th>Authority Name</th>
+                    <th>Region</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tax in report['Tax Returns'] %}
+                <tr>
+                    <td>{{ tax['Year'] }}</td>
+                    <td>${{ tax['Max_Income'] }}</td>
+                    <td>${{ tax['TaxPaid'] }}</td>
+                    <td>{{ tax['AuthorityID'] }}</td>
+                    <td>{{ tax['AuthorityName'] }}</td>
+                    <td>{{ tax['Region'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No tax returns found.</p>
+    {% endif %}
+
+    <h2>Employment Records</h2>
+    {% if report['Employment Records'] %}
+        <ul>
+            {% for employment in report['Employment Records'] %}
+                <li>
+                    <strong>Employee ID:</strong> {{ employment['EmployeeID'] }},
+                    <strong>Job Title:</strong> {{ employment['JobTitle'] }},
+                    <strong>Start Date:</strong> {{ employment['StartDate'] }},
+                    <strong>End Date:</strong> {{ employment['EndDate'] }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No employment records found.</p>
+    {% endif %}
+
+    <h2>Social Security Records</h2>
+    {% if report['Social Security Records'] %}
+        <ul>
+            {% for record in report['Social Security Records'] %}
+                <li><strong>Contribution:</strong> ${{ record['Contributions'] }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No social security records found.</p>
+    {% endif %}
+</body>
+</html>

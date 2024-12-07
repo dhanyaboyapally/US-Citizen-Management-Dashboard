@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>File Tax Return</title>
+</head>
+<body>
+    <h1>File Tax Return</h1>
+    <form action="/file_tax_return" method="post">
+        <label for="ssn">SSN:</label>
+        <input type="text" id="ssn" name="ssn" required><br><br>
+
+        <label for="max_income">Maximum Income:</label>
+        <input type="number" id="max_income" name="max_income" step="0.01" required><br><br>
+
+        <label for="tax_paid">Tax Paid:</label>
+        <input type="number" id="tax_paid" name="tax_paid" step="0.01" required><br><br>
+
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" required><br><br>
+
+        <label for="authority_id">Tax Authority:</label>
+        <select id="authority_id" name="authority_id" required>
+            <option value="" disabled selected>Select Tax Authority</option>
+            {% for authority in tax_authorities %}
+                <option value="{{ authority['AuthorityID'] }}">{{ authority['Name'] }} ({{ authority['Region'] }})</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">File Tax Return</button>
+    </form>
+</body>
+</html>

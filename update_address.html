@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Update Address</title>
+</head>
+<body>
+    <h1>Update Address</h1>
+    <form action="/update_address" method="post">
+        <label for="ssn">SSN:</label>
+        <input type="text" id="ssn" name="ssn" required><br><br>
+
+        <label for="address_id">Address ID (Optional for New Address):</label>
+        <input type="text" id="address_id" name="address_id"><br><br>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required><br><br>
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" required><br><br>
+
+        <label for="zip">ZIP Code:</label>
+        <input type="text" id="zip" name="zip" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Update Employment Status</title>
+</head>
+<body>
+    <h1>Update Employment Status</h1>
+    <form action="/update_employment" method="post">
+        <label for="employee_id">Employee ID (Optional for New Record):</label>
+        <input type="text" id="employee_id" name="employee_id"><br><br>
+
+        <label for="ssn">SSN:</label>
+        <input type="text" id="ssn" name="ssn" required><br><br>
+
+        <label for="job_title">Job Title:</label>
+        <input type="text" id="job_title" name="job_title" required><br><br>
+
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date"><br><br>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Manage Tax Authorities</title>
+</head>
+<body>
+    <h1>Manage Tax Authorities</h1>
+    
+    <!-- Display any messages -->
+    {% if message %}
+        <p><strong>{{ message }}</strong></p>
+    {% endif %}
+
+    <!-- Form to Add or Update TaxAuthority -->
+    <form action="/tax_authority" method="post">
+        <input type="hidden" name="action" value="add">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="region">Region:</label>
+        <input type="text" id="region" name="region" required><br><br>
+
+        <button type="submit">submit</button>
+    </form>
+
+    <!--<h2>Existing Tax Authorities</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Authority ID</th>
+                <th>Name</th>
+                <th>Region</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tax_authority in tax_authorities %}
+            <tr>
+                <td>{{ tax_authority['AuthorityID'] }}</td>
+                <td>{{ tax_authority['Name'] }}</td>
+                <td>{{ tax_authority['Region'] }}</td>
+                <td>
+                    <form action="/tax_authority" method="post" style="display: inline;">
+                        <input type="hidden" name="action" value="update">
+                        <input type="hidden" name="authority_id" value="{{ tax_authority['AuthorityID'] }}">
+                        <input type="text" name="name" placeholder="New Name" required>
+                        <input type="text" name="region" placeholder="New Region" required>
+                        <button type="submit">Update</button>
+                    </form>
+                    
+                    <form action="/tax_authority" method="post" style="display: inline;">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" name="authority_id" value="{{ tax_authority['AuthorityID'] }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table> -->
+</body>
+</html>
